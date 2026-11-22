@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kompres Gambar — Remike Dev</title>
+<meta name="description" content="Kompres dan convert gambar (PNG, JPG, WebP) langsung di browser. File kamu gak di-upload ke server mana pun — semua diproses di perangkatmu sendiri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#top">Kompres<span>Gambar</span></a>
+  <p class="header-note">100% lokal · tanpa upload</p>
+</header>
+<div class="tape" aria-hidden="true"><span>Kompres * Convert * PNG * JPG * WebP * Tanpa Upload * Kompres * Convert * PNG * JPG * WebP * Tanpa Upload *</span></div>
+
+<main id="top">
+  <section class="hero">
+    <p class="hero-kicker">Tools gambar · jalan di browser</p>
+    <h1>Kecilkan gambar tanpa <span class="hl">upload</span> ke mana-mana.</h1>
+    <p class="hero-sub">Tarik gambar ke bawah, atur format dan kualitasnya, lalu download hasilnya. Semua prosesnya pakai Canvas di browser ini — <strong>file kamu gak di-upload ke server mana pun</strong>, jadi aman buat screenshot, foto pribadi, sampai scan dokumen.</p>
+  </section>
+
+  <section class="panel" aria-label="Upload dan pengaturan">
+    <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Pilih gambar atau tarik gambar ke sini">
+      <p class="dropzone-icon" aria-hidden="true">🖼️</p>
+      <p class="dropzone-title">Tarik &amp; letakkan gambar di sini</p>
+      <p class="dropzone-sub">atau klik buat pilih file — bisa banyak sekaligus (PNG, JPG, WebP)</p>
+      <input id="file-input" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden>
+    </div>
+
+    <div class="controls">
+      <div class="field">
+        <label for="format">Format hasil</label>
+        <select id="format">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp" selected>WebP</option>
+        </select>
+      </div>
+      <div class="field field-quality">
+        <label for="quality">Kualitas: <span id="quality-value">80</span>%</label>
+        <input id="quality" type="range" min="10" max="100" step="1" value="80">
+        <p class="field-hint">Berlaku buat JPG &amp; WebP. PNG selalu lossless.</p>
+      </div>
+      <div class="field">
+        <label for="max-width">Lebar maksimal</label>
+        <select id="max-width">
+          <option value="0" selected>Ukuran asli</option>
+          <option value="1920">1920 px</option>
+          <option value="1280">1280 px</option>
+          <option value="800">800 px</option>
+        </select>
+      </div>
+    </div>
+    <p class="controls-note">Pengaturan diubah? Semua gambar di bawah otomatis diproses ulang.</p>
+  </section>
+
+  <section class="results" aria-label="Hasil kompres">
+    <div class="results-head">
+      <div>
+        <h2>Hasilnya</h2>
+        <span class="section-sub">langsung bisa didownload satu-satu atau sekaligus ↓</span>
+      </div>
+      <div class="results-actions">
+        <p class="total-line mono" id="total-line" hidden></p>
+        <button class="btn btn-green" id="download-all" type="button" hidden>Download Semua →</button>
+        <button class="btn btn-ghost" id="clear-all" type="button" hidden>Bersihkan</button>
+      </div>
+    </div>
+
+    <p class="empty" id="empty-state">Belum ada gambar. Tarik gambar pertamamu ke kotak di atas — hasilnya muncul di sini.</p>
+    <div class="card-grid" id="card-grid"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>Dibuat oleh Remike Dev · HTML, CSS &amp; JavaScript murni · Gambar diproses lokal pakai Canvas API, gak ada yang dikirim ke server</p>
+    <p><a href="#top">Kembali ke atas ↑</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
