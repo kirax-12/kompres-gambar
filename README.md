@@ -1,5 +1,7 @@
 # Kompres Gambar
 
+**Demo live:** [kompres-gambar di GitHub Pages](https://kirax-12.github.io/kompres-gambar/)
+
 Tools web buat mengompres dan mengonversi gambar langsung di browser. Tarik gambar, atur format dan kualitasnya, download hasilnya — selesai. Gak ada proses upload, karena semua gambar diproses pakai Canvas API di perangkatmu sendiri.
 
 ## Fitur
